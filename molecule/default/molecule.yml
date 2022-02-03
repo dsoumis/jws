@@ -12,6 +12,7 @@ driver:
 #   ansible-lint --force-color
 platforms:
   - name: instance
+  - name: ubi8
     image: registry.access.redhat.com/ubi8/ubi-init
 #    tmpfs:
 #      - /run
