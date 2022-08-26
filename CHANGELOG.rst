@@ -6,8 +6,18 @@ middleware_automation.jws Release Notes
 
 This changelog describes changes after version 0.0.3.
 
+v1.1.2
+======
+
+- Add missing single quote to groupinstall
+- Change value for webapps removal, keep ROOT and docs, delete only examples
+- Ensure jws5-tomcat package is install if tomcat_vault is enabled
+- Change permission masks from 0600 to 06400 for config files
+
 v1.1.1
 ======
+
+- add .gitignore to build_ignore
 
 v1.1.0
 ======
