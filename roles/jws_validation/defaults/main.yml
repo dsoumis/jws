@@ -7,7 +7,7 @@ jws_gid: 53
 # tomcat_home: /opt/jws-5.6/tomcat/
 catalina_logfile: logs/catalina.out
 tomcat_version: 9.0.65
-jws_service_name: tomcat
+jws_service_name: jws5-tomcat
 
 jws_listen_http_bind_address: 127.0.0.1
 jws_listen_http_port: 8080
