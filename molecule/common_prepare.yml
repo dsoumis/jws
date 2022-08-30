@@ -12,6 +12,10 @@
   ansible.builtin.set_fact:
     assets_server: "{{ lookup('env','MIDDLEWARE_DOWNLOAD_RELEASE_SERVER_URL') }}"
 
+- name: "Change service name if running with jws."
+  ansible.builtin.set_fact:
+    jws_service_name: jws5-tomcat
+
 - name: "Download and deploy jws zips from {{ assets_server }}"
   ansible.builtin.get_url:
     url: "{{ asset }}"
