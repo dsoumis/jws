@@ -12,5 +12,10 @@
     # ajp config will not work with tomcat and produce errors in catalina.out
     jws_validation_allow_errors_in_catalina_log: True
   tasks:
+
+    - name: "Wait to allow debug"
+      ansible.builtin.wait_for:
+        timeout: 6000
+
     - include_role:
         name: jws_validation
