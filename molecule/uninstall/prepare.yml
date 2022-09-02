@@ -1,4 +1,5 @@
 ---
+- import_playbook: ../wait_for_infra_to_be_ready.yml
 - name: Prepare
   hosts: all
   tasks:

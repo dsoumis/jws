@@ -1,4 +1,5 @@
 ---
+- import_playbook: ../wait_for_infra_to_be_ready.yml
 - name: Prepare
   hosts: all
   tasks:
@@ -20,7 +21,7 @@
     - name: "Set JWS version if resource available"
       ansible.builtin.set_fact:
         jws_version: 5.5.0
-      when: 
+      when:
         - "(lookup('env', 'PWD') | default('/opt') + '/jws-5.5.0-application-server.zip') is exists"
         - jws_version is defined
   roles:
