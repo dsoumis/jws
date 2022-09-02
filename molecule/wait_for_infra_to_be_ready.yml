@@ -1,0 +1,9 @@
+---
+- name: Sleep to allow the container to become available
+  hosts: localhost
+  vars:
+    sleep_time: 20
+  tasks:
+    - name: "Wait for {{ sleep_time }}s for container to be ready"
+      ansible.builtin.pause:
+        seconds: "{{ sleep_time }}"
