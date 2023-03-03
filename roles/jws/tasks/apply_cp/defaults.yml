@@ -6,11 +6,11 @@
     - ansible_facts is defined
     - ansible_facts['distribution_major_version'] is defined
   block:
-    - name: "Set patch_version using distribution datas."
+    - name: "Set patch_version using distribution data."
       ansible.builtin.set_fact:
         patch_version: "{{ jws.rhn_ids[jws_version].latest_cp.v }}"
 
-    - name: "Set patch_bundle using distribution datas."
+    - name: "Set patch_bundle using distribution data."
       ansible.builtin.set_fact:
         jws_patch_bundle: "jws-{{ patch_version }}{{ archive_file_suffix | default('.zip') }}"
 
@@ -23,7 +23,7 @@
       when:
         - not rhn_cpatch_zipfile_url is defined
       block:
-        - name: "Ensure version {{ jws_version }} exists in available metadatas."
+        - name: "Ensure version {{ jws_version }} exists in available metadata."
           ansible.builtin.assert:
             that:
               - jws.rhn_ids[jws_version] is defined
@@ -41,7 +41,7 @@
         - jws_native is defined
         - jws_native
       block:
-        - name: "Ensure version {{ jws_version }} exists in available metadatas."
+        - name: "Ensure version {{ jws_version }} exists in available metadata."
           ansible.builtin.assert:
             that:
               - jws.rhn_ids[jws_version] is defined

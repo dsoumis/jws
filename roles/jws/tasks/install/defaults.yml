@@ -45,7 +45,7 @@
           when:
             - not rhn_server_zipfile_url is defined
           block:
-            - name: "Ensure version {{ jws_version }} exists in available metadatas."
+            - name: "Ensure version {{ jws_version }} exists in available metadata."
               ansible.builtin.assert:
                 that:
                   - jws.rhn_ids[jws_version] is defined
@@ -64,7 +64,7 @@
             - jws_native
             - not rhn_native_zipfile_url is defined
           block:
-            - name: "Ensure version {{ jws_version }} exists in available metadatas."
+            - name: "Ensure version {{ jws_version }} exists in available metadata."
               ansible.builtin.assert:
                 that:
                   - jws.rhn_ids[jws_version] is defined

@@ -98,7 +98,7 @@ argument_specs:
                 default: "./conf/catalina.policy"
                 description: "Path for tomcat policy configuration"
                 type: "str"
-            jws_conf_loggging:
+            jws_conf_logging:
                 # line 13 of jws/defaults/main.yml
                 default: "./conf/logging.properties"
                 description: "Path for logging configuration"
@@ -327,7 +327,7 @@ argument_specs:
             jws_systemd_script_shebang:
                 # line 54 of jws/defaults/main.yml
                 default: "#!/bin/{{ jws_systemd_script_interpreter }}"
-                description: "Customize sysVinit script sheband"
+                description: "Customize sysVinit script shebang"
                 type: "str"
             jws_service_name:
                 # line 55 of jws/defaults/main.yml

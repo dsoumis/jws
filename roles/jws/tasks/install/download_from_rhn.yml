@@ -1,5 +1,5 @@
 ---
-- name: "Check that RHN URL have been set before attemping to download archives."
+- name: "Check that RHN URL have been set before attempting to download archives."
   ansible.builtin.assert:
     that:
       - zipfile_url is defined

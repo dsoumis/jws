@@ -20,7 +20,7 @@
   ansible.builtin.set_fact:
     severe_error_label: "SEVERE"
 
-- name: Fail if logfile contains ERRORs
+- name: Fail if logfile contains ERRORS
   ansible.builtin.assert:
     that:
       - not severe_error_label in catalina_out_content
