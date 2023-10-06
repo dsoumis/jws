@@ -11,8 +11,8 @@ on:
 jobs:
   docs:
     uses: ansible-middleware/github-actions/.github/workflows/docs.yml@main
+    secrets: inherit
     permissions:
-      secrets: inherit
       actions: write
       checks: write
       contents: write
