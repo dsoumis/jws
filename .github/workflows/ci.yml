@@ -7,10 +7,11 @@ on:
   pull_request:
   schedule:
     - cron: '0 6 * * *'
+  workflow_dispatch:
 
 jobs:
   ci:
-    uses: ansible-middleware/github-actions/.github/workflows/ci.yml@main
+    uses: ansible-middleware/github-actions/.github/workflows/ci.yml@fix_workflows_and_various_inconsistencies
     secrets: inherit
     with:
       fqcn: 'middleware_automation/jws'
