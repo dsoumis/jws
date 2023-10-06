@@ -46,6 +46,9 @@
 
 - name: "Apply selinux policy"
   ansible.builtin.command: "restorecon -r {{ jws.install_dir }}"
+  register: result
+  changed_when:
+    - result.rc == 0
   listen: "Apply selinux policy"
 
 - name: Notify new patch is available

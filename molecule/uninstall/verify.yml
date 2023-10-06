@@ -3,7 +3,7 @@
   hosts: all
   vars:
     jws_tomcat_version: 9.0.65
-    jws_home: "/opt/apache-tomcat-{{ jws_tomcat_version }}"
+    jws_home: "/opt/apache-tomcat-{{ tomcat_version }}"
   collections:
     - middleware_automation.jws
   tasks:

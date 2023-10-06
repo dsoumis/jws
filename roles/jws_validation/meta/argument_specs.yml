@@ -40,7 +40,7 @@ argument_specs:
             jws_home:
                 type: "str"
                 description: "home of tomcat/jws installation"
-                default: "/opt/apache-tomcat-{{ jws_tomcat_version }}/"
+                default: "/opt/apache-tomcat-{{ tomcat_version }}/"
             jws_listen_ajp_enabled:
                 # line 28 of jws/defaults/main.yml
                 default: "False"
