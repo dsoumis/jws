@@ -29,7 +29,7 @@
 
 - name: "Add firewalld to dependencies list (if enabled)."
   ansible.builtin.set_fact:
-    jws_dependencies_list: "{{ [ jws_dependencies_list + jws_firewalld_package_name ] }}"
+    jws_dependencies_list: "[ {{ jws_dependencies_list }} + {{ jws_firewalld_package_name }} ]"
   when:
     - jws_firewalld_enabled is defined and jws_firewalld_enabled
 
