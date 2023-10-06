@@ -25,4 +25,4 @@
         - jws_version is defined
   roles:
     - role: jws
-      jws_tomcat_version: 9.0.80
+      tomcat_version: 9.0.80
