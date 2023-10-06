@@ -22,7 +22,7 @@ jws_archive_repository: "{{ lookup('env', 'PWD') | default('/opt') }}"
 jws_apache_archive_download_url_prefix: 'https://dlcdn.apache.org/tomcat/tomcat-'
 
 # Default version of Apache Tomcat to use if no version is provided
-tomcat_version: 10.1.13
+jws_tomcat_version: 10.1.13
 # Switch to True if you want to also download native bits
 jws_native: False
 jws_native_zipfile: ''

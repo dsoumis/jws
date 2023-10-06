@@ -46,7 +46,7 @@ argument_specs:
                     - zip
                     - unzip
                 description: "names of the packages required on the target system."
-            tomcat_version:
+            jws_tomcat_version:
                 default: "9.0.60"
                 description: "Version of tomcat to install"
                 type: "str"

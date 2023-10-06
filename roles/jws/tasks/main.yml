@@ -3,9 +3,9 @@
 # we use the latest version of Apache Tomcat
 - name: "Set default values"
   ansible.builtin.set_fact:
-    zipfile_rootdir: "apache-tomcat-{{ tomcat_version }}"
-    zipfile_name: "apache-tomcat-{{ tomcat_version }}.zip"
-    zipfile_url: "{{ jws_apache_archive_download_url_prefix }}{{ tomcat_version.split('.')[0] }}/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.zip"
+    zipfile_rootdir: "apache-tomcat-{{ jws_tomcat_version }}"
+    zipfile_name: "apache-tomcat-{{ jws_tomcat_version }}.zip"
+    zipfile_url: "{{ jws_apache_archive_download_url_prefix }}{{ jws_tomcat_version.split('.')[0] }}/v{{ jws_tomcat_version }}/bin/apache-tomcat-{{ jws_tomcat_version }}.zip"
   when:
     - not jws_version is defined
 
