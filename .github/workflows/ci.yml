@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - fix_workflows_and_various_inconsistencies
+      - main
   pull_request:
   schedule:
     - cron: '0 6 * * *'
@@ -11,7 +11,7 @@ on:
 
 jobs:
   ci:
-    uses: ansible-middleware/github-actions/.github/workflows/ci.yml@fix_workflows_and_various_inconsistencies
+    uses: ansible-middleware/github-actions/.github/workflows/ci.yml@main
     secrets: inherit
     with:
       fqcn: 'middleware_automation/jws'
