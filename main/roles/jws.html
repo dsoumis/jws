@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>middleware_automation.jws.jws &mdash; JWS Ansible Collection  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/antsibull-minimal.css" type="text/css" />
       <link rel="stylesheet" href="../_static/ansible-basic-sphinx-ext.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/sphinx_highlight.js"></script>
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> JWS Ansible Collection
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            JWS Ansible Collection
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -45,7 +49,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../README.html">Ansible Collection - middleware_automation.jws</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Role Index</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">middleware_automation.jws.jws</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#dependency">Dependency</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#versions">Versions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#patching">Patching</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#role-defaults">Role Defaults</a><ul>
@@ -80,7 +84,8 @@
 <li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/keycloak/">Keycloak / Red Hat Single Sign-On</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/wildfly/">Wildfly / Red Hat JBoss EAP</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/jws/">Tomcat / Red Hat JWS</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/amq/">ActiveMQ / Red Hat AMQ</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/amq/">ActiveMQ / Red Hat AMQ Broker</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/amq/">Kafka / Red Hat AMQ Streams</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/redhat-csp-download/">Red Hat CSP Download</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://ansible-middleware.github.io/ansible_collections_jcliff/">JCliff</a></li>
 </ul>
@@ -98,7 +103,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Role Index</a></li>
       <li class="breadcrumb-item active">middleware_automation.jws.jws</li>
       <li class="wy-breadcrumbs-aside">
@@ -111,28 +116,25 @@
            <div itemprop="articleBody">
              
   <section id="middleware-automation-jws-jws">
-<h1>middleware_automation.jws.jws<a class="headerlink" href="#middleware-automation-jws-jws" title="Permalink to this heading"></a></h1>
-<p>This role contains the ansible playbook to setup JWS.</p>
-<section id="dependency">
-<h2>Dependency<a class="headerlink" href="#dependency" title="Permalink to this heading"></a></h2>
+<h1>middleware_automation.jws.jws<a class="headerlink" href="#middleware-automation-jws-jws" title="Link to this heading"></a></h1>
+<p>This role contains the ansible playbook to set up JWS.</p>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<p>The roles depends on:</p>
 <ul class="simple">
-<li><p>middleware_automation.redhat_csp_download</p>
-<ul>
-<li><p>This collection is required to download resources from RedHat Customer Portal.</p></li>
-<li><p>Documentation to collection can be found at <a class="reference external" href="https://github.com/ansible-middleware/redhat-csp-download">https://github.com/ansible-middleware/redhat-csp-download</a></p></li>
-</ul>
-</li>
+<li><p><a class="reference external" href="https://github.com/ansible-middleware/common">middleware_automation.common</a></p></li>
+<li><p><a class="reference external" href="https://docs.ansible.com/ansible/latest/collections/ansible/posix/index.html">ansible.posix</a></p></li>
 </ul>
 </section>
 <section id="versions">
-<h2>Versions<a class="headerlink" href="#versions" title="Permalink to this heading"></a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Versions<a class="headerlink" href="#versions" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>JWS VERSION</p></th>
-<th class="text-left head"><p>Release Date</p></th>
-<th class="text-left head"><p>Tomcat Version</p></th>
-<th class="text-left head"><p>Native Version</p></th>
-<th class="text-left head"><p>Notes</p></th>
+<tr class="row-odd"><th class="head text-left"><p>JWS VERSION</p></th>
+<th class="head text-left"><p>Release Date</p></th>
+<th class="head text-left"><p>Tomcat Version</p></th>
+<th class="head text-left"><p>Native Version</p></th>
+<th class="head text-left"><p>Notes</p></th>
 </tr>
 </thead>
 <tbody>
@@ -182,33 +184,38 @@
 </table>
 </section>
 <section id="patching">
-<h2>Patching<a class="headerlink" href="#patching" title="Permalink to this heading"></a></h2>
+<h2>Patching<a class="headerlink" href="#patching" title="Link to this heading"></a></h2>
 <p>When variable <code class="docutils literal notranslate"><span class="pre">jws_apply_patches</span></code> is <code class="docutils literal notranslate"><span class="pre">True</span></code> (default: <code class="docutils literal notranslate"><span class="pre">False</span></code>), the role will automatically apply the latest cumulative patch for the selected base version.</p>
-<table class="colwidths-auto docutils align-default">
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>JWS VERSION</p></th>
-<th class="text-left head"><p>Release Date</p></th>
-<th class="text-left head"><p>JWS LATEST CP</p></th>
-<th class="text-left head"><p>Notes</p></th>
+<tr class="row-odd"><th class="head text-left"><p>JWS VERSION</p></th>
+<th class="head text-left"><p>Release Date</p></th>
+<th class="head text-left"><p>JWS LATEST CP</p></th>
+<th class="head text-left"><p>Notes</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.6.0</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.7.0</span></code></p></td>
+<td class="text-left"><p>September 04, 2023</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.7.4</span></code></p></td>
+<td class="text-left"><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/5.7/html/red_hat_jboss_web_server_5.7_service_pack_4_release_notes/index">Release Notes</a></p></td>
+</tr>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.6.0</span></code></p></td>
 <td class="text-left"><p>April 29, 2022</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.6.2</span></code></p></td>
 <td class="text-left"><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/5.6/html/red_hat_jboss_web_server_5.6_service_pack_2_release_notes/index">Release Notes</a></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.5.0</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.5.0</span></code></p></td>
 <td class="text-left"><p>October 06, 2021</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.5.1</span></code></p></td>
 <td class="text-left"><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/5.5/html/red_hat_jboss_web_server_5.5_service_pack_1_release_notes/index">Release Notes</a></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.4.0</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.4.0</span></code></p></td>
 <td class="text-left"><p>April 14, 2021</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.4.2</span></code></p></td>
 <td class="text-left"><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/5.4/html/red_hat_jboss_web_server_5.4_service_pack_2_release_notes/index">Release Notes</a></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.3.0</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.3.0</span></code></p></td>
 <td class="text-left"><p>August 04, 2020</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.3.2</span></code></p></td>
 <td class="text-left"><p><a class="reference external" href="https://access.redhat.com/documentation/en-us/red_hat_jboss_web_server/5.3/html/red_hat_jboss_web_server_5.3_service_pack_2_release_notes/index">Release Notes</a></p></td>
@@ -219,14 +226,14 @@
 <!--start argument_specs-->
 </section>
 <section id="role-defaults">
-<h2>Role Defaults<a class="headerlink" href="#role-defaults" title="Permalink to this heading"></a></h2>
+<h2>Role Defaults<a class="headerlink" href="#role-defaults" title="Link to this heading"></a></h2>
 <section id="download-and-install-parameters">
-<h3>Download and install parameters<a class="headerlink" href="#download-and-install-parameters" title="Permalink to this heading"></a></h3>
-<table class="colwidths-auto docutils align-default">
+<h3>Download and install parameters<a class="headerlink" href="#download-and-install-parameters" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Default</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
@@ -242,68 +249,64 @@
 <td class="text-left"><p>Installation RPM version</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws5</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_rhn_base_url</span></code></p></td>
-<td class="text-left"><p>Customer Portal Base URL for archive download</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=</span></code></p></td>
-</tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_version</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_version</span></code></p></td>
 <td class="text-left"><p>Version of JWS to install</p></td>
-<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.6.0</span></code></p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">5.7.0</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_apply_patches</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_apply_patches</span></code></p></td>
 <td class="text-left"><p>Install JWS most recent cumulative patch for requested version</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_selinux_enabled</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_selinux_enabled</span></code></p></td>
 <td class="text-left"><p>Enable selinux policy enforcement for JWS</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">True</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_home</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_home</span></code></p></td>
 <td class="text-left"><p>Default installation path for JWS archives</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">jws_install_dir</span> <span class="pre">}}/jws-{{</span> <span class="pre">jws_version.split('.')[0]</span> <span class="pre">}}.{{</span> <span class="pre">jws_version.split('.')[1]</span> <span class="pre">}}/tomcat</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_user</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_user</span></code></p></td>
 <td class="text-left"><p>posix user account for service</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tomcat</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_uid</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_uid</span></code></p></td>
 <td class="text-left"><p>posix UID user account for service</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tomcat</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_group</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_group</span></code></p></td>
 <td class="text-left"><p>posix group for service</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tomcat</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_gid</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_gid</span></code></p></td>
 <td class="text-left"><p>posix GID user account for service</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">tomcat</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_native</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_native</span></code></p></td>
 <td class="text-left"><p>Install native bits; provide a zipfile path below with tomcat, while on JWS it will be interpolated from version</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_native_zipfile</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_native_zipfile</span></code></p></td>
 <td class="text-left"><p>Tomcat native binaries archive filename</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">''</span></code></p></td>
 </tr>
-<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_force_install</span></code></p></td>
+<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_force_install</span></code></p></td>
 <td class="text-left"><p>Whether to stop any running tomcat process and continue installation</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">false</span></code></p></td>
 </tr>
-<tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_archive_repository</span></code></p></td>
+<tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_archive_repository</span></code></p></td>
 <td class="text-left"><p>Path local to controller for offline/download archive files</p></td>
-<td class="text-left"><p>`{{ lookup(‘env’, ‘PWD’)</p></td>
+<td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">{{</span> <span class="pre">lookup('env',</span> <span class="pre">'PWD')</span> <span class="pre">&amp;#124;</span> <span class="pre">default('/opt')</span> <span class="pre">}}</span></code></p></td>
 </tr>
 </tbody>
 </table>
 </section>
 <section id="service-configuration">
-<h3>Service configuration<a class="headerlink" href="#service-configuration" title="Permalink to this heading"></a></h3>
-<table class="colwidths-auto docutils align-default">
+<h3>Service configuration<a class="headerlink" href="#service-configuration" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Default</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
@@ -443,12 +446,12 @@
 </table>
 </section>
 <section id="tomcat-vault-configuration">
-<h3>tomcat-vault configuration<a class="headerlink" href="#tomcat-vault-configuration" title="Permalink to this heading"></a></h3>
-<table class="colwidths-auto docutils align-default">
+<h3>tomcat-vault configuration<a class="headerlink" href="#tomcat-vault-configuration" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Default</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
@@ -488,12 +491,12 @@
 </table>
 </section>
 <section id="mod-cluster-configuration">
-<h3>mod_cluster configuration<a class="headerlink" href="#mod-cluster-configuration" title="Permalink to this heading"></a></h3>
-<table class="colwidths-auto docutils align-default">
+<h3>mod_cluster configuration<a class="headerlink" href="#mod-cluster-configuration" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Default</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
@@ -533,17 +536,17 @@
 </table>
 </section>
 <section id="https-configuration">
-<h3>HTTPS configuration<a class="headerlink" href="#https-configuration" title="Permalink to this heading"></a></h3>
-<table class="colwidths-auto docutils align-default">
+<h3>HTTPS configuration<a class="headerlink" href="#https-configuration" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Default</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Default</p></th>
 </tr>
 </thead>
 <tbody>
 <tr class="row-even"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_listen_https_enabled</span></code></p></td>
-<td class="text-left"><p>Enable HTTS connector</p></td>
+<td class="text-left"><p>Enable HTTPS connector</p></td>
 <td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">False</span></code></p></td>
 </tr>
 <tr class="row-odd"><td class="text-left"><p><code class="docutils literal notranslate"><span class="pre">jws_listen_https_port</span></code></p></td>
@@ -587,12 +590,12 @@
 </section>
 </section>
 <section id="role-variables">
-<h2>Role Variables<a class="headerlink" href="#role-variables" title="Permalink to this heading"></a></h2>
-<table class="colwidths-auto docutils align-default">
+<h2>Role Variables<a class="headerlink" href="#role-variables" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
 <thead>
-<tr class="row-odd"><th class="text-left head"><p>Variable</p></th>
-<th class="text-left head"><p>Description</p></th>
-<th class="text-left head"><p>Required</p></th>
+<tr class="row-odd"><th class="head text-left"><p>Variable</p></th>
+<th class="head text-left"><p>Description</p></th>
+<th class="head text-left"><p>Required</p></th>
 </tr>
 </thead>
 <tbody>
@@ -609,13 +612,13 @@
 <!--end argument_specs-->
 </section>
 <section id="example-playbook">
-<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Permalink to this heading"></a></h2>
-<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span><span class="w"></span>
-<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span><span class="w"></span>
-<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Include</span><span class="nv"> </span><span class="s">JWS&quot;</span><span class="w"></span>
-<span class="w">      </span><span class="nt">include_role</span><span class="p">:</span><span class="w"></span>
-<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jws&quot;</span><span class="w"></span>
+<h2>Example Playbook<a class="headerlink" href="#example-playbook" title="Link to this heading"></a></h2>
+<div class="highlight-YAML+Jinja notranslate"><div class="highlight"><pre><span></span><span class="nn">---</span>
+<span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">hosts</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;Include</span><span class="nv"> </span><span class="s">JWS&quot;</span>
+<span class="w">      </span><span class="nt">include_role</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;jws&quot;</span>
 </pre></div>
 </div>
 </section>
@@ -632,7 +635,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2022, Red Hat, Inc..</p>
+    <p>&#169; Copyright 2023, Red Hat, Inc..</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
