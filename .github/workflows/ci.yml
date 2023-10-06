@@ -3,7 +3,7 @@ name: CI
 on:
   push:
     branches:
-      - main
+      - fix_workflows_and_various_inconsistencies
   pull_request:
   schedule:
     - cron: '0 6 * * *'
