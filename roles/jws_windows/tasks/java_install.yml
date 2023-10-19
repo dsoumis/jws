@@ -1,0 +1,63 @@
+---
+- name: "Install Java"
+  when:
+    - jws_java_version is defined
+    - ansible_os_family == "Windows"
+  block:
+    - name: "Set URL to fetch Java {{ jws_java_version }} from"
+      ansible.builtin.set_fact:
+        java_product_url:
+          8: "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip"
+          11: "https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_windows-x64_bin.zip"
+          17: "https://download.java.net/java/GA/jdk17.0.2/dfd4a8d0985749f896bed50d7138ee7f/8/GPL/openjdk-17.0.2_windows-x64_bin.zip"
+          21: "https://download.java.net/java/GA/jdk21.0.1/415e3f918a1f4062a0074a2794853d0d/12/GPL/openjdk-21.0.1_windows-x64_bin.zip"
+
+    - name: "Download artifact from web"
+      win_get_url:
+        url: "{{ java_product_url[jws_java_version | int] }}"
+        dest: "{{ ansible_env.TEMP }}\\{{ (java_product_url[jws_java_version | int] | urlsplit('path')).split('/')[-1] }}"
+        force: false
+      register: file_downloaded
+      retries: 5
+      delay: 2
+      until: file_downloaded is succeeded
+
+    - name: "Create directory for Java installation"
+      win_file:
+        path: "C:\\Program Files\\Java"
+        state: directory
+
+    - name: "Set Java artifact"
+      ansible.builtin.set_fact:
+        java_artifact: "{{ (file_downloaded|default({})).dest }}"
+
+    - name: "Set Java directory"
+      ansible.builtin.set_fact:
+        java_directory: "C:\\Program Files\\Java"
+
+    - name: "Set Java installation directory"
+      ansible.builtin.set_fact:
+        java_installation_directory: "{{ java_directory }}\\jdk-{{ java_artifact | win_basename | regex_search('(\\d+\\.\\d+\\.\\d+)') }}"
+
+    - name: Print the extracted version
+      debug:
+        var: java_installation_directory
+
+    - name: "Install Java {{ jws_java_version }}"
+      win_unzip:
+        src: "{{ java_artifact }}"
+        dest: "{{ java_directory }}"
+        creates: "{{ java_installation_directory }}"
+
+    - name: "Set JAVA_HOME environment variable"
+      win_environment:
+        name: "JAVA_HOME"
+        state: present
+        value: "{{ java_installation_directory }}"
+        level: machine
+
+    - name: "Ensure that 'JAVA_HOME\\bin' is present in 'Path' variable"
+      win_path:
+        elements: "{{ java_installation_directory }}\\bin"
+        state: present
+        scope: machine

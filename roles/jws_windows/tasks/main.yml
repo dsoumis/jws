@@ -1,0 +1,20 @@
+---
+# The following is only for upstream: if jws_version is not defined
+# we use the latest version of Apache Tomcat
+- name: "Set default values"
+  ansible.builtin.set_fact:
+    zipfile_name: "apache-tomcat-{{ tomcat_version }}.zip"
+    zipfile_url: "{{ jws_apache_archive_download_url_prefix }}{{ tomcat_version.split('.')[0] }}/v{{ tomcat_version }}/bin/apache-tomcat-{{ tomcat_version }}.zip"
+  when:
+    - not jws_version is defined
+
+- name: "Check that jws_home has been defined."
+  ansible.builtin.assert:
+    that:
+      - jws_home is defined
+      - jws_home | length > 0
+
+- name: "Include tasks for Java installation (if Java version is provided)"
+  ansible.builtin.include_tasks: java_install.yml
+  when:
+    - jws_java_version is defined
