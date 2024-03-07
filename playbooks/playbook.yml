@@ -1,8 +1,23 @@
 ---
 - name: "Red Hat JBoss Web Server installation and configuration"
   hosts: all
-  become: True
-  vars_files:
-    - vars.yml
+  # become: True
+  #debugger: always
+  vars:
+    zipfile_name: "jws-5.7.0-application-server.zip"
+    jws_version: "5.7.0"
+    rhn_username: "16159184-f330-49a5-a7e4-18ce9b29f1e1"
+    rhn_password: "XIynUDI8cQWCgtyNmmOxqBjLYlhO4pD6"
+    jws_apply_patches: True
+    jws_product_category: webserver
+    #jws_java_version: 11
+    jws_home: "C:\\Program Files\\poustaHome"
+    jws_install_dir: "C:\\Program Files\\pousta2"
+    jws_archive_repository: "{{ lookup('env', 'PWD') | default('/opt') }}"
+    jws_setup: True
+    jws_offline_install: False
+    jws_zipfile_rootdir: "jws-5.7"
+    jws_native: True
+    jws_native_zipfile: "jws-5.7.0-application-server-win6-x86_64.zip"
   roles:
-    - middleware_automation.jws.jws
+    - middleware_automation.jws.jws_windows

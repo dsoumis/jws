@@ -1,0 +1,77 @@
+---
+- name: "Set filename for JWS native zipfile"
+  ansible.builtin.set_fact:
+    jws_native_zipfile: "jws-{{ jws_version }}{{ (jws_version.startswith('6') | ternary('-optional-native-components', '-application-server')) }}-win6-x86_64.zip"
+  when:
+    - jws_native is defined and jws_native
+    - not jws_native_zipfile is defined or jws_native_zipfile | length == 0
+    - jws_version is defined and jws_version | length > 0
+
+- name: "Ensure patch version is specified when installing offline."
+  ansible.builtin.assert:
+    that:
+      - jws_patch_version is defined and jws_patch_version | length > 0
+    quiet: True
+    fail_msg: "When applying patches in offline mode, you need to provide the zipfile and its version in jws_patch_version"
+  when:
+    - jws_offline_install is defined and jws_offline_install
+    - jws_apply_patches is defined and jws_apply_patches
+
+- name: "Ensure credentials are defined when installing from JBossNetwork API."
+  ansible.builtin.assert:
+    that:
+      - rhn_username is defined and rhn_username | length > 0
+      - rhn_password is defined and rhn_password | length > 0
+    quiet: True
+    fail_msg: "When downloading JWS automatically from RHN, credentials are required to be set in variables rhn_username / rhn_password"
+  when:
+    - jws_version is defined and jws_version | length > 0
+    - jws_offline_install is defined and not jws_offline_install
+
+- name: "Ensure zipfiles exist on controller when installing offline."
+  when:
+    - jws_offline_install is defined and jws_offline_install
+    - jws_version is defined and jws_version | length > 0
+  block:
+    - name: "Check working directory {{ jws_archive_repository }} for local repository"
+      ansible.builtin.assert:
+        that:
+          - jws_archive_repository is defined
+          - jws_archive_repository is exists
+          - jws_archive_repository is directory
+        quiet: True
+        fail_msg: "Controller path {{ jws_archive_repository }} for offline resources or downloaded zipfiles is invalid. Check variable jws_archive_repository"
+    - name: "Check main zipfile"
+      ansible.builtin.assert:
+        that:
+          - "'{{ jws_archive_repository }}/{{ zipfile_name }}' is exists"
+        quiet: True
+        fail_msg: "An offline install was requested but the zipfile {{ jws_archive_repository }}/{{ zipfile_name }} was not found"
+    - name: "
+    Check native zipfile exists"
+      ansible.builtin.assert:
+        that:
+          - "'{{ jws_archive_repository }}/{{ jws_native_zipfile }}' is exists"
+        quiet: True
+        fail_msg: "An offline install was requested but the zipfile {{ jws_archive_repository }}/{{ jws_native_zipfile }} was not found"
+      when: jws_native is defined and jws_native
+    - name: "Check patch zipfile exists"
+      ansible.builtin.assert:
+        that:
+          - filename is exists
+        quiet: True
+        fail_msg: "An offline install was requested but the zipfile {{ filename }} was not found"
+      when: jws_apply_patches is defined and jws_apply_patches
+      vars:
+        filename: "{{ jws_archive_repository + '/jws-' + jws_patch_version + '-application-server.zip' }}"
+    - name: "Check native patch zipfile exists"
+      ansible.builtin.assert:
+        that:
+          - filename is exists
+        quiet: True
+        fail_msg: "An offline install was requested but the zipfile {{ filename }} was not found"
+      when:
+        - jws_apply_patches is defined and jws_apply_patches
+        - jws_native is defined and jws_native
+      vars:
+        filename: "{{ jws_archive_repository + '/jws-' + jws_patch_version + (jws_version.startswith('6') | ternary('-optional-native-components', '-application-server')) + '-win6-x86_64.zip' }}"

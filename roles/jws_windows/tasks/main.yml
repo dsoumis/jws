@@ -18,3 +18,39 @@
   ansible.builtin.include_tasks: java_install.yml
   when:
     - jws_java_version is defined
+
+- name: "Perform setup"
+  when:
+    - jws_setup is defined
+    - jws_setup
+  block:
+    - name: "Check state of install_dir: {{ jws_install_dir }}"
+      ansible.windows.win_stat:
+        path: "{{ jws_install_dir }}"
+      register: install_path
+
+    - name: "Ensure install dir is created: {{ jws_install_dir }}"
+      ansible.windows.win_file:
+        path: "{{ jws_install_dir }}"
+        state: directory
+      when:
+        - not install_path.stat.exists
+
+    - name: "Set defaults values based on facts (if values not provided)"
+      ansible.builtin.include_tasks: defaults.yml
+
+    - name: "Include install tasks"
+      ansible.builtin.include_tasks: install.yml
+
+
+    - name: "Ensure {{ jws_home }} folders have appropriate permissions"
+      ansible.windows.win_acl:
+        path: "{{ jws_home }}"
+        user: "LOCAL SERVICE"
+        rights: FullControl
+        state: present
+        type: allow
+
+- name: "Start Tomcat"
+  ansible.windows.win_command:
+    cmd: 'net start tomcat9'

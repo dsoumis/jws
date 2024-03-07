@@ -1,0 +1,48 @@
+---
+- name: "Check arguments"
+  ansible.builtin.assert:
+    that:
+      - zipfile_name is defined and zipfile_name | length > 0
+    quiet: true
+    fail_msg: "'zipfile_name' needs to be defined (or at least jws_version)"
+
+- name: "Add zipfile to unarchive list"
+  ansible.builtin.set_fact:
+    zipfiles:
+      - { src: "{{ zipfile_name }}", creates: "{{ jws_install_dir }}\\{{ jws_zipfile_rootdir }}\\bin" }
+
+- name: "Add native zipfile to unarchive list"
+  ansible.builtin.set_fact:
+    zipfiles: "{{ zipfiles + [{'src': jws_native_zipfile, 'creates': jws_install_dir + '\\\\' + jws_zipfile_rootdir + '\\tomcat\\lib\\libtcnative-1.dll'}] }}"
+  when:
+    - jws_native is defined and jws_native
+    - jws_native_zipfile is defined and jws_native_zipfile | length > 0
+
+- name: "Install {{ jws.service.hr_name }} and required binaries from local zipfiles"
+  win_unzip:
+    src: "{{ jws_install_dir }}\\{{ item.src }}"
+    dest: "{{ jws_install_dir }}"
+    creates: "{{ item.creates }}"
+  loop: "{{ zipfiles }}"
+  register: unarchived_zipfiles
+  #notify: "Restart Tomcat service"
+
+- name: "Configure custom jws_home"
+  when:
+    - jws_home != jws_install_dir + '\\' + jws_zipfile_rootdir
+    - unarchived_zipfiles.changed
+  block:
+    - name: "Move the zipfile extracted directory to custom jws_home {{ jws_home }}"
+      ansible.windows.win_copy:
+        src: "{{ jws_install_dir }}\\{{ jws_zipfile_rootdir }}\\"
+        dest: "{{ jws_home }}"
+        remote_src: yes
+        force: yes
+# TODO
+#    - name: "Move the version.txt to custom jws_home {{ jws_home }}"
+#      ansible.windows.win_copy:
+#        src: "{{ jws_install_dir }}\\{{ jws_zipfile_rootdir }}\\..\\version.txt"
+#        dest: "{{ jws_home }}\\..\\"
+#        remote_src: yes
+#        force: yes
+      when: jws_version is defined

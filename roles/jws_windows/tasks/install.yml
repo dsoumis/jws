@@ -1,0 +1,17 @@
+---
+- name: "Include installation tasks"
+  ansible.builtin.include_tasks: install/local.yml
+
+- name: "Include installation tasks for zip operations"
+  ansible.builtin.include_tasks: install/zipfiles.yml
+
+- name: "Add {{ jws_home }}\\tomcat\\bin to enable the SSL Connector to work successfully"
+  win_path:
+    elements: "{{ jws_home }}\\tomcat\\bin"
+    state: present
+    scope: machine
+
+- name: "Install the Tomcat service"
+  win_shell: 'call "{{ jws_home }}\\tomcat\\bin\\service.bat" install'
+  args:
+    executable: cmd

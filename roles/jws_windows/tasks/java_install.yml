@@ -39,7 +39,7 @@
       ansible.builtin.set_fact:
         java_installation_directory: "{{ java_directory }}\\jdk-{{ java_artifact | win_basename | regex_search('(\\d+\\.\\d+\\.\\d+)') }}"
 
-    - name: Print the extracted version
+    - name: "Print the extracted version"
       debug:
         var: java_installation_directory
 
